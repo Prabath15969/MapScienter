@@ -1,0 +1,25 @@
+<h2 mat-dialog-title>Save Polygon</h2>
+
+<mat-dialog-content [formGroup]="polygon">
+  <mat-form-field>
+    <input matInput placeholder="City Name" formControlName="city" />
+  </mat-form-field>
+  <mat-form-field>
+    <input matInput placeholder="City Code" formControlName="code" />
+  </mat-form-field>
+  <mat-form-field>
+    <input type="color" matInput placeholder="Color" formControlName="color" />
+  </mat-form-field>
+</mat-dialog-content>
+
+<mat-dialog-actions>
+  <button class="mat-raised-button" (click)="close()">Close</button>
+  <button
+    [disabled]="!polygon.valid"
+    style="right: 0"
+    class="mat-raised-button mat-primary"
+    (click)="savePolygon()"
+  >
+    Save
+  </button>
+</mat-dialog-actions>

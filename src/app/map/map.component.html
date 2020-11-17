@@ -1,0 +1,84 @@
+<!-- <div class="agm-container">
+  <h3>Pizza Hut Sales Outlet</h3>
+  <agm-map
+    [zoom]="10"
+    [latitude]="latitude"
+    [longitude]="longitude"
+    (mapReady)="onMapReady($event)"
+  >
+  </agm-map>
+  <br />
+  <button mat-stroked-button color="primary" (click)="OpenContents(pointList)">
+    Matara
+  </button>
+  <div *ngIf="pointList.length > 0" class="display-flex">
+    <button mat-stroked-button color="primary" (click)="SaveShape(pointList)">
+      Save
+    </button>
+    <button mat-stroked-button color="warn" (click)="deleteSelectedShape()">
+      Clear
+    </button>
+  </div>
+</div> -->
+<div class="container">
+  <h3>Pizza Hut Sales Outlet</h3>
+  <div class="polygon">
+    <!-- <button mat-stroked-button color="primary" (click)="loadPolygons()">
+      loadAll
+    </button> -->
+    <div class="list">
+      <table>
+        <tr>
+          <th>City</th>
+          <th>Code</th>
+          <th>View</th>
+          <th>Delete</th>
+        </tr>
+        <tbody *ngFor="let item of listOfPolygons">
+          <tr>
+            <td>{{ item.city }}</td>
+            <td>{{ item.code }}</td>
+            <td>
+              <button
+                mat-stroked-button
+                color="primary"
+                (click)="loadsinglePolygons(item.code)"
+              >
+                View
+              </button>
+            </td>
+            <td>
+              <button
+                mat-stroked-button
+                color="warn"
+                (click)="deletePolygon(item.code)"
+              >
+                Delete
+              </button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <div id="map" class="maps">
+    <agm-map
+      [zoom]="10"
+      [latitude]="latitude"
+      [longitude]="longitude"
+      (mapReady)="onMapReady($event)"
+    >
+    </agm-map>
+    <div *ngIf="pointList.length > 0" class="display-flex">
+      <button mat-stroked-button color="primary" (click)="SaveShape(pointList)">
+        Save
+      </button>
+      <button mat-stroked-button color="warn" (click)="deleteSelectedShape()">
+        Clear
+      </button>
+    </div>
+  </div>
+</div>
+<div id="delete-window">
+  <button mat-stroked-button color="warn" id="delete">Remove</button>
+</div>

@@ -1,0 +1,18 @@
+<ng-container>
+  <div style="width: 100%" mat-dialog-content>Do you want to delete?</div>
+  <div style="width: 100%" mat-dialog-actions>
+    <button style="float: left" mat-stroked-button (click)="onNoClick()">
+      No
+    </button>
+    <button
+      (click)="delete()"
+      style="float: right"
+      mat-stroked-button
+      color="warn"
+      [mat-dialog-close]="true"
+      cdkFocusInitial
+    >
+      Yes
+    </button>
+  </div>
+</ng-container>
